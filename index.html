@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Card Generator</h1>
+            <div class="theme-selector">
+                <label for="theme-select">Theme:</label>
+                <select id="theme-select">
+                    <option value="classic">Classic</option>
+                    <option value="modern">Modern</option>
+                    <option value="rustic">Rustic</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2>Recipe Details</h2>
+                <form id="recipe-form">
+                    <div class="form-group">
+                        <label for="recipe-name">Recipe Name:</label>
+                        <input type="text" id="recipe-name" placeholder="Enter recipe name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prep-time">Prep Time (minutes):</label>
+                            <input type="number" id="prep-time" placeholder="30">
+                        </div>
+                        <div class="form-group">
+                            <label for="cook-time">Cook Time (minutes):</label>
+                            <input type="number" id="cook-time" placeholder="45">
+                        </div>
+                        <div class="form-group">
+                            <label for="servings">Servings:</label>
+                            <input type="number" id="servings" placeholder="4">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ingredients:</label>
+                        <div id="ingredients-container">
+                            <div class="ingredient-item">
+                                <input type="text" class="ingredient-input" placeholder="e.g., 2 cups flour">
+                                <button type="button" class="remove-btn" onclick="removeIngredient(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-ingredient" class="add-btn">+ Add Ingredient</button>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Instructions:</label>
+                        <div id="instructions-container">
+                            <div class="instruction-item">
+                                <textarea class="instruction-input" placeholder="Step 1: Describe the first step..."></textarea>
+                                <button type="button" class="remove-btn" onclick="removeInstruction(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-instruction" class="add-btn">+ Add Step</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h2>Preview</h2>
+                    <button id="print-btn" class="print-btn">🖨️ Print Recipe</button>
+                </div>
+                
+                <div id="recipe-card" class="recipe-card theme-classic">
+                    <div class="card-header">
+                        <h3 id="preview-name">Recipe Name</h3>
+                        <div class="recipe-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Prep:</span>
+                                <span id="preview-prep">-- min</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Cook:</span>
+                                <span id="preview-cook">-- min</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Serves:</span>
+                                <span id="preview-servings">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="ingredients-section">
+                            <h4>Ingredients</h4>
+                            <ul id="preview-ingredients">
+                                <li class="placeholder">Add ingredients to see them here...</li>
+                            </ul>
+                        </div>
+
+                        <div class="instructions-section">
+                            <h4>Instructions</h4>
+                            <ol id="preview-instructions">
+                                <li class="placeholder">Add instructions to see them here...</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
